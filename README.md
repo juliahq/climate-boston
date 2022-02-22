@@ -5,7 +5,8 @@ Using R and HTML/CSS, this project is an analysis of Boston neighborhoods and th
 In the future, I would update this project with 2020 U.S. Census data.
 
 Included in the repository are:
-* RedClimateBos.Rmd is the markdown of the R analysis (with code). RedClimateBos.html is the knitted version of the Rmd file
+* RedClimateBos.Rmd is the markdown of the R analysis (with code and links to data sources)
+* RedClimateBos.html is the knitted version of the Rmd file
 * redclimateboston_webpage.html and redclimate_style.css are the HTML/CSS files for the webpage (no code)
 * The "data" folder contains data used to make the various plots
 * The "img" folder contains output plots generated using R (dplyr, ggplot2)
