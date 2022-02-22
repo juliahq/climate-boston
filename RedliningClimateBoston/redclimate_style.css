@@ -1,0 +1,197 @@
+/* External style sheet 
+Author: Julia Hong
+Date: October 25, 2020
+Mini-project 1
+*/
+
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/*change link appearance after clicking*/
+a:link, a:visited {
+    color: #1e761e;
+    text-decoration: none;
+}
+
+/*change link appearance with hover*/
+a:hover {
+    text-decoration: underline;
+}
+
+#header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-shrink: 3;
+    padding-left: 30px;
+    padding-right: 30px;
+
+}
+
+#header img{
+    max-width:50%;
+    height: auto;
+}
+
+#intro {
+    flex: 1 0 25%;
+    flex-direction: row;
+}
+
+#intro2 {
+    flex: 1 0 25%;
+    flex-direction: row;
+}
+
+#map_previews p{
+    text-align: center;
+    color: green;
+}
+
+#part1 {
+    flex-wrap: wrap;
+    flex-direction: row;   
+    border-top: 2px dashed orange;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+}
+
+#part2 {
+    flex-wrap: wrap;
+    flex-direction: row;   
+    border-top: 2px dashed orange;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+}
+
+#part1_cont, #part2_cont, #part3_cont, #datavizes, #part3_cont3 {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#data_viz{
+    flex: 1 0 60%;
+    flex-direction: row;
+}
+
+#data_intro{
+    flex: 1 0 40%;
+    flex-direction: row;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 30px;
+    color: #b84303;
+}
+
+#part3 {
+    flex: 1 0 25%;
+    border-top: 2px dashed orange;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+}
+
+#part3_cont3 {
+    border-top: 2px dashed orange;
+    color: #b84303;
+    flex-wrap: wrap;
+}
+
+#part3_cont {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+#choropleths, #part3_cont2 {
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    border-top: 2px dotted orange;
+}
+
+#dataviz1, #dataviz2{
+    flex: 1 0 50%;
+    flex-direction: row;
+}
+
+#open_dataviz{
+    flex: 1 0 50%;
+    flex-direction: row;
+    width: 50%;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+#open_intro{
+    flex: 1 0 40%;
+    flex-direction: row;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+#footer {
+    flex: 1 0 25%;
+    border-top: 2px solid orange;
+    padding-left: 30px;
+    padding-top: 10px;
+    font-size: 10pt;
+    color: gray;
+}
+
+
+/* Basic CSS styles */
+
+h1 {
+    color: #b84303;
+    text-align: center;
+    border-bottom: 2px solid orange;
+}
+
+h2 {
+    color:  #b84303;
+}
+
+h3 {
+    text-decoration: underline;
+    font-variant: small-caps;
+    color: #762a4c;
+}
+
+h4 {
+    color: black;
+}
+
+i {
+    color: #6d0c6d;
+}
+
+ul li {
+    font-size: small;
+    color: gray;
+
+}

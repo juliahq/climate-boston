@@ -1,0 +1,125 @@
+<!DOCTYPE html> 
+
+    <html> 
+
+        <head>
+            <meta charset ='utf-8'>
+            <!-- Author: Julia Hong-->
+            <!-- Date: October 25, 2020-->
+            <!-- Mini Project 1-->
+            <title>How Some Boston Communities May Be More Vulnerable to Urban Heat</title>
+            <link rel ="stylesheet" href="redclimate_style.css">
+        </head>
+
+        <body>
+            <div id="container">
+                <div id="header">
+                    <div id = "intro">
+                        <h1>How Some Boston Communities May Be More Vulnerable to Urban Heat</h1>
+                        <p>In a city as diverse as Boston, different communities may be less prepared for the extreme effects of climate change. Factors such as older or younger age, pre-existing medical conditions and low-income can place a person at greater risk to extreme heat.</p>
+                        <p>With the <a href = "https://www.nytimes.com/interactive/2019/08/09/climate/city-heat-islands.html">urban heat island effect</a>, urban areas, lacking in greenery, are more susceptible to extreme heat than rural ones. Extreme heat can accumulate on heat-absorbent surface areas, such as buildings and pavement. But within Boston itself, neighborhoods vary by the amount of open space and trees, which contributes to varying extents of urban heat in different communities on the same hot summer day, as seen in <a href = "https://web.tplgis.org/bostonmetromayorsecure/pdfmaps/ClimateSmart_MetroBoston_Cool_Combined_34x44_20171113.pdf">Metropolitan Area Planning Council's map</a> for the Boston metropolitan area.</p>
+                        <p>This year, Boston had its <a href = "https://boston.cbslocal.com/2020/09/09/massachusetts-hottest-summer-temperature-noaa-climate-report">hottest summer on record</a>. As the Earth's climate continues to warm, identifying which neighborhoods are more at risk to extreme heat is crucial for climate preparedness.</p>
+                    </div>
+                    <div id = "intro2">
+                        <p>This data project, told in <b>three parts</b> and developed with R, will help provide visualizations of the disproportionate effect of a warmer Boston for specific communities and examine how historical redlining may have had a lasting effect on those communities today.</p>
+
+                        <div id = "map_previews">
+                            <img src = "img/POC_map.png", width = 100%><img src = "img/redlining_map.png", width=100%>
+                            <p><i>A preview of visualizations to come</i></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="part1">
+                    <h2>Part 1: Population Distribution of Vulnerable Communities</h2>
+                    <p>In order to examine different populations in Boston neighborhoods, I used a 2016 dataset of vulnerable social groups from <a href = "https://www.boston.gov/departments/environment/preparing-climate-change">Climate Ready Boston</a>, the city's initiative for preparing for the long-term effects of climate change. <a href = "https://data.boston.gov/dataset/climate-ready-boston-social-vulnerability">This dataset</a> was obtained from Analyze Boston.</p>
+                    <p>The original dataset, derived from research by certified emergency manager <a href ="http://www.atyiamartin.com/contact">Atyia Martin</a>, has population data organized by U.S. Census tract for older adults, children, people with limited English proficiency (LEP), low-income, people of color and individuals with medical illnesses, such as asthma, heart disease, emphysema, bronchitis, cancer, diabetes, kidney disease and liver disease. It also includes the neighborhood name and total populations for each Census tract.</p>
+                    <p><b>Some things to note when interpreting this data:</b></p>
+                    <ul>
+                        <li>The population data is based on 5-year estimates from the U.S. Census American Community Survey from 2008-2012, which may be somewhat outdated and not directly reflect population data this year.</li>
+                        <li>Many of these same individuals who are part of one group may be counted toward another or more groups, but the data does not identify population of people in multiple groups.</li>
+                    </ul>
+                </div>
+
+                <div id = "part1_cont">
+                    <div id = "data_viz">
+                    <h3>Making a heat map</h3>
+                    <img src = "img/heatmap.png", width = 100%>
+                    </div>
+
+                    <div id = "data_intro">
+                    <p>To simplify the data for visualizing, I used <i>dplyr</i>. I found the totals for each group across neighborhood names. Note that the original dataset only has <b>23 neighborhoods</b> and does not include Beacon Hill, Chinatown or Downtown.</p>
+                    <p>Knowing I wanted to create a heat map, I converted the data into long-form format using the <i>tidy</i> function in the <i>tidyr</i> package.</p>
+                    <p>Then, using <i>ggplot2</i>, I created this heat map to visualize the percent makeup of each population group compared to the total neighborhood population. This allows for some standardized comparison across different neighborhoods and you can identify which communities may be in need of greater climate preparedness, depending on the frequency of deeper tiles.</p>
+                    </div>    
+                </div>
+                <div id="part2">
+                    <h2>Part 2: Neighborhood Comparisons of People of Color and Low-income Populations</h2>
+                    <p>While examining percentages of population is useful, it is equally important to identify which communities have the most vulnerable people by overall population. I chose the groups - people of color and low-income populations - to analyze more closely.</p>
+                </div>
+                <div id="part2_cont">
+                    <div id = "data_intro">
+                    <h3>Making a Grouped Bar Chart</h3>
+                    <p>Using <i>dplyr</i> again, I filtered the same long-form dataset, derived from the Climate Ready Boston dataset, to only these two groups and reordered the neighborhoods by population values and then created a grouped bar chart using <i>ggplot2</i>.</p>
+                    <p>The following grouped bar chart shows that Roxbury and Dorchester have the most people of color and low-income populations of the Boston neighborhoods. Note that these neighborhoods are also among the largest Boston neighborhoods.</p>
+                    </div>
+                    <div id= "data_viz">
+                    <img src = "img/POC_lowincome_barchart.png", width = 100%>
+                    </div>
+                </div>
+                <div id="part3">
+                    <h2>Part 3: How the Racist Past Affects Boston Today</h2>
+                    <p>Researchers suggest that in the United States, people of color tend to be at greater risk to extreme heat and other public health emergencies, including the current COVID-19 pandemic. This is likely due to more people of color having susceptible health conditions and/or living in low-income houses.</p>
+                    <p>However, researchers believe that historical redlining, a racist housing policy conducted in the 1930s by the federal agency Home Owners' Loan Corporation, has lasting underlying effects, partly responsible for this racial disproportion, as reported by <a href = "https://www.nytimes.com/interactive/2020/08/24/climate/racism-redlining-cities-global-warming.html">The New York Times</a>.</p>
+                    <p>HOLC appraisers graded different areas from A (green), B (blue), C (yellow) and D (red) and in turn determined who would be allowed to receive federal and bank housing loans. The D-grade, a redlined area, was the lowest grade and often assigned to neighborhoods with a majority of Black residents and other people of color, labeling them as disfavorable for financial loans.</p>
+                </div>
+
+                <div id = "choropleths">
+                    <h3>Making choropleths</h3>
+                    <p>To visualize the effects of this for Boston, I created several choropleths using the <i>ggplot2</i> function <i>geom_polygon</i>. I primarily worked with geoJSON files for this part of the project. To read each geoJSON in R, I used the <i>geojsonio</i> library and converted each dataset (fortified) using the <i>broom</i> package.</p>
+                </div>
+
+                <div id = "part3_cont">
+                    <div id = "data_viz">
+                        <h4>Historically redlined areas and present day Boston neighborhood borders</h4>
+                        <img src = "img/redlining_map.png", width = 100%>
+                        <p>This map shows historically redlined areas and layers modern Boston neighborhood borders.</p>
+                    </div>
+                    <div id = "data_intro">
+                        <p>I obtained a geoJSON of 1938 HOLC map of Boston from <a href = "https://dsl.richmond.edu/panorama/redlining">Mapping Inequality</a>, a project that has digitized historical redlining maps for major U.S. cities.</p>
+                        <ul>
+                            <li>Citation: Robert K. Nelson, LaDale Winling, Richard Marciano, Nathan Connolly, et al., “Mapping Inequality,” American Panorama, ed. Robert K. Nelson and Edward L. Ayers, accessed October 25, 2020, <a href = "https://dsl.richmond.edu/panorama/redlining">https://dsl.richmond.edu/panorama/redlining/</a>.</li>
+                        </ul>
+                        <p>I also used a geoJSON dataset of <a href = "https://data.boston.gov/dataset/boston-neighborhoods">Boston neighborhoods</a>, obtained from Analyze Boston, in order to have neighborhood borders on the map. This dataset includes 26 neighborhoods and does include Beacon Hill, Chinatown or Downtown, as opposed to the earlier Climate Ready Boston dataset. </p>
+                        <p>After plotting the redlined areas and layering the neighborhood borders, I found it quite difficult to label the neighborhoods with their respective names. As a workaround, I isolated a list of 26 neighborhoods and created a <a href ="https://docs.google.com/spreadsheets/d/1H6UiNGURnFsb4_LFyPlDZRnnTZhZtQanrozmVdv7rbw/edit?usp=sharing">new dataset</a> with the center of each neighborhood by longitude and latitude coordinates obtained from Google Search. I then used <i>geom_text_repel</i> from the <i>ggrepel</i> package to plot these coordinates and neighborhood names as labels. </p>
+                    </div>
+                </div>
+                <div id = "part3_cont2">
+                    <h4>Distribution of POC and low-income populations, gradient for U.S. Census tracts, outline of neighborhood borders</h4>
+                    <p>Here is a comparison of the distribution of people of color and low-income populations in Boston.</p>
+                    <p>These maps can be compared to the redlining map. For historically redlined areas and even yellowlined areas, these neighborhoods include more people of color and low-income.</p>
+                    <div id = "datavizes">
+                        <div id = "dataviz1">
+                            <img src = "img/POC_map.png", width = 100%>
+                        </div>
+                        <div id = "dataviz2">
+                            <img src = "img/lowIncome_map.png", width = 100%>
+                        </div>
+                    </div>    
+                </div>
+                <div id = "part3_cont3">
+                    <div id = "open_dataviz">
+                        <h4>Open space areas in Boston, neighborhood borders</h4>
+                        <img src = "img/openSpace_map.png", , width = 100%>
+                    </div>
+                    <div id = "open_intro">
+                        <p>One environmental factor to consider is the amount of open space within each neighborhood. Parks and trees within an urban setting are extremely valuable to provide cooling in surrounding areas. People who may not have air-conditioning or other home-cooling options can go outside to these open areas to escape the burden of extreme heat, in event of a heatwave. Yet some communities may have less open space than others.</p>
+                        <p>I obtained a dataset on <a href = "https://data.boston.gov/dataset/open-space">open space areas</a> of conservation and reservation in Boston, from Analyze Boston. This map, when compared to previous ones, shows a correlation of less open spaces in areas that were historically redlined and have greater populations of color and of low-income today.</p>
+                    </div>
+                </div>
+                <div id="footer">
+                    <p>Data analysis and visualizations by Julia Hong</p>
+                </div>
+            </div>
+        </body>
+    </html>
